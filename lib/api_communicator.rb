@@ -18,18 +18,15 @@ def get_character_movies_from_api(character_name)
 
   movies.each_index do |each_link|
     movie_info << JSON.parse(RestClient.get(movies[each_link]))
-    # response_string2 = RestClient.get(movies[each_link])
-    # response_hash2 = JSON.parse(response_string2)
-    # binding.pry
   end
 movie_info
 end
 
-get_character_movies_from_api("Luke Skywalker")
-binding.pry
-
 def print_movies(films)
   # some iteration magic and puts out the movies in a nice list
+  films.each do |film_info|
+    p film_info["title"]
+  end
 end
 
 def show_character_movies(character)
